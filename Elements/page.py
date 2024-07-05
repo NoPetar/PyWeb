@@ -3,6 +3,7 @@ class Page:
         self.title_ = title
         self.code_ = code
         self.file_name_ = file_name
+        self.elements = []
     def title(self):
         return self.title_
     def code(self):
