@@ -23,9 +23,3 @@ class PyWeb:
 
     
     
-web = PyWeb("website")
-web.CreatePage("sigma.html" , "beta")
-web.CreatePage("beta.html" , "Sigma")
-web.SelectPage("sigma.html")
-web.execute()
-web.open()
