@@ -21,5 +21,10 @@ class PyWeb:
             f.write(page.code())
             f.close()
 
-    
+    def Button(self, args : dict = {
+        "width" : int,
+        "height" : int,
+        "text" : str
+    }):
+        self.currentPage.code_ += f'<button style = "width : {args["width"]}px; height : {args["height"]}px">{args["text"]}</button>'
     
