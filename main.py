@@ -1,5 +1,5 @@
 import os
-from page import Page
+from Elements.page import Page
 from c import *
 
 class PyWeb:
