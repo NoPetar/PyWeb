@@ -39,4 +39,8 @@ class PyWeb:
     }):
         self.currentPage.code_ += f'<a href = {args["href"].name()}>{args["text"]}</a>'
         return anchor(args["href"].name() , args["text"])
-    
+    def NewLine(self, amount : int = 1):
+        self.currentPage.code_ += '<br>' * amount
+        self.currentPage.code_ += '\n'
+    def UseCSS(self):
+        f = open(f'{self.path}/styles.css' , "w")

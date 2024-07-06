@@ -9,10 +9,15 @@ website.Button({
     "height" : 100,
     "text" : "Click Me",
 })
+website.NewLine(5)
 website.Anchor({
     "href" : h,
     "text" : "Click Me"
 })
-
+website.SelectPage('h.html')
+website.Anchor({
+    "href" : a,
+    "text" : "Click Me"
+})
 website.execute()
 website.open()
