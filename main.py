@@ -1,6 +1,7 @@
 import os
 from Elements.page import Page
 from Elements.button import Button
+from Elements.anchor import anchor
 from c import *
 
 class PyWeb:
@@ -8,11 +9,13 @@ class PyWeb:
         self.path : str = path
         self.pages : list = []
         self.currentPage : Page = None
-        os.mkdir(path)
+        if os.path.isdir(f"{path}") == False:
+            os.mkdir(f'{path}')
     def open(self):
         os.system(f'cmd /k "start {self.path}/{self.currentPage.name()}"')
     def CreatePage(self, name, title):
         self.pages.append(Page(file_name = name , code = "" , title=title))
+        return Page(file_name = name , code = "" , title=title)
     def SelectPage(self, name):
         for page in self.pages:
             if page.name() == name:
@@ -30,3 +33,10 @@ class PyWeb:
     }):
         self.currentPage.code_ += f'<button style = "width : {args["width"]}px; height : {args["height"]}px">{args["text"]}</button>'
         return Button(float(args["width"]) , float(args["height"]), args["text"])
+    def Anchor(self, args : dict = {
+        "href" : Page,
+        "text" : str
+    }):
+        self.currentPage.code_ += f'<a href = {args["href"].name()}>{args["text"]}</a>'
+        return anchor(args["href"].name() , args["text"])
+    
